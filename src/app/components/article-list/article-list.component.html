@@ -1,0 +1,8 @@
+<div class="container-article-list">
+  <h1>{{ article.title }} !</h1>
+  <p>{{ article.createdAt | date:'dd/MM/yyyy' }}</p>
+  <p>{{ article.categoryName }}</p>
+  <p>{{ article.likeCount }}</p>
+  <p>{{ article.content }}</p>
+  <img [src]="article.image" alt="" />
+</div>
