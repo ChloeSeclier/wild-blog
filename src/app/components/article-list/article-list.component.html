@@ -1,8 +1,13 @@
 <div class="container-article-list">
-  <h1>{{ article.title }} !</h1>
-  <p>{{ article.createdAt | date:'dd/MM/yyyy' }}</p>
-  <p>{{ article.categoryName }}</p>
-  <p>{{ article.likeCount }}</p>
-  <p>{{ article.content }}</p>
-  <img [src]="article.image" alt="" />
+  @for (article of articles; track article.id) { @if (article.isPublished) {
+  <div [ngClass]="{'popular-article': article.likeCount>200}">
+    <h1>{{ article.title }} !</h1>
+    <p>{{ article.createdAt | date : "dd/MM/yyyy" }}</p>
+    <p>{{ article.categoryName }}</p>
+    <p>{{ article.likeCount }}</p>
+    <p>{{ article.content }}</p>
+    <img [src]="article.image" alt="" />
+  </div>
+  } }
+  @empty { <p>Aucun article publié</p> }
 </div>

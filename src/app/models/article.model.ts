@@ -1,4 +1,5 @@
 export default interface Article {
+  id: number;
   title: string;
   content: string;
   image: string;
@@ -6,4 +7,5 @@ export default interface Article {
   isPublished: boolean;
   likeCount: number;
   categoryName: string;
+  isLiked: boolean;
 }
