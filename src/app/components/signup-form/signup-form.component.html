@@ -1,0 +1,48 @@
+<!--REPRENDRE ETAPE 5 QUETE 7 -->
+
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="username">Nom d'utilisateur</label>
+    <input type="username" formControlName="username" />
+
+    @if ( signUpForm.get('username')?.touched &&
+    signUpForm.get('username')?.dirty) {
+    <div>
+      @if (signUpForm.get('username')?.errors?.['required']) {
+      <span>Le nom d'utilisateur est requis.</span>
+      } @if (signUpForm.get('username')?.errors?.['minlength']) {
+      <span>Le nom doit comporter au moins 3 caractères.</span>
+      }
+    </div>
+    }
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input type="email" formControlName="email" />
+  </div>
+
+  <div formGroupName="passwords">
+    <div>
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" formControlName="password" />
+      @if (signUpForm.get('password')?.invalid &&
+      signUpForm.get('password')?.touched){
+      <div>
+        @if (signUpForm.get('password')?.errors?.['securePassword']){
+        <span>Mot de passe doit contenir 12carac, etc...</span>
+        }
+      </div>
+      }
+    </div>
+    <div>
+      <label for="confirmPassword">Confirm password</label>
+      <input type="password" id="confirmPassword" formControlName="confirmPassword">
+      @if (signUpForm.get('passwords')?.errors?.['passwordsMismatch'] && signUpForm.get('passwords')?.touched) {
+        <span>Les mots de passe ne correspondent pas.</span>
+      }
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="signUpForm.invalid">S'inscrire</button>
+</form>
