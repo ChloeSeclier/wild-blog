@@ -9,6 +9,7 @@
         class="article-thumbnail__image"
       />
       <span class="article-thumbnail__tag">{{ article.categoryName }}</span>
+      <span class="article-thumbnail__like" (click)="sendNotification()">{{ article.isLiked ? "♥" : "♡"}}</span>
     </div>
     <div class="article-thumbnail__content">
       <p class="article-thumbnail__like-count">{{ article.likeCount }} like</p>
@@ -24,3 +25,4 @@
       </p>
     </div>
   </div>
+  <!-- <button (click)="sendNotif()">Like</button> -->

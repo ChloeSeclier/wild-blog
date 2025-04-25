@@ -189,4 +189,13 @@ export class ArticleListComponent {
       isLiked: false,
     },
   ];
+
+  // messageFromChild: string ="";
+  // handleNotif(message:string){
+  //   this.messageFromChild=message;
+  // }
+
+  handleArticle(article:Article){
+    article.isLiked = !article.isLiked;
+  }
 }
